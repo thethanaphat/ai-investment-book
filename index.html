@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>อย่าใช้ AI ช่วยลงทุน ถ้ายังไม่อ่านเล่มนี้ — อ.ใหม่ ธนภัทร</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c10;
+    --surface: #111318;
+    --surface-2: #181c23;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8eaf0;
+    --text-muted: #7a8090;
+    --text-dim: #4a5060;
+    --accent: #3ecfb2;
+    --accent-dim: rgba(62,207,178,0.12);
+    --accent-glow: rgba(62,207,178,0.25);
+    --gold: #c9a84c;
+    --gold-dim: rgba(201,168,76,0.12);
+    --red: #e05c5c;
+    --red-dim: rgba(224,92,92,0.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Sarabun', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── LAYOUT ─── */
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section { padding: 72px 0; }
+
+  /* ─── DIVIDER ─── */
+  .rule {
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(62,207,178,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+
+  .label::before {
+    content: '';
+    display: block;
+    width: 20px; height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero .subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 500px;
+  }
+
+  .author-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .author-line strong { color: var(--text); font-weight: 600; }
+
+  .dot {
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--text-dim);
+  }
+
+  /* ─── PROBLEM ─── */
+  .problem-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .problem-list li {
+    display: flex;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--red-dim);
+    border: 1px solid rgba(224,92,92,0.15);
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #c8cdd8;
+  }
+
+  .problem-list li::before {
+    content: '×';
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    color: var(--red);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ─── SECTION HEADER ─── */
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-header .label { margin-bottom: 16px; }
+
+  .section-header h2 {
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #fff;
+    line-height: 1.3;
+  }
+
+  .section-header p {
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 16px;
+  }
+
+  /* ─── BOOK PREVIEW ─── */
+  .book-card {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 32px;
+    align-items: start;
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 500px) {
+    .book-card { grid-template-columns: 1fr; }
+  }
+
+  .book-cover {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, #0d1520 0%, #1a2535 50%, #0d1520 100%);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .book-cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 30%, rgba(62,207,178,0.08), transparent 60%);
+  }
+
+  .book-cover-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .book-cover-text .title-th {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .book-cover-text .title-en {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  .book-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .book-info .by {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .book-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .book-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .book-stat .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .book-stat .lbl {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ─── TOC ─── */
+  .toc-parts {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .toc-part {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .toc-part-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--surface);
+    cursor: default;
+  }
+
+  .part-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .part-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .part-sub {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .toc-chapters {
+    padding: 12px 20px 16px 52px;
+    background: var(--surface-2);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-top: 1px solid var(--border);
+  }
+
+  .toc-chapter {
+    font-size: 14px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .toc-chapter::before {
+    content: '—';
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    flex-shrink: 0;
+  }
+
+  /* ─── PROMPTS ─── */
+  .prompt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .prompt-card {
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: border-color 0.2s;
+  }
+
+  .prompt-card:hover { border-color: rgba(62,207,178,0.3); }
+
+  .prompt-card .icon {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .prompt-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .prompt-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .prompt-total {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(62,207,178,0.2);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .prompt-total strong {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    color: var(--accent);
+  }
+
+  /* ─── CALLOUT BOXES ─── */
+  .callout {
+    padding: 20px 24px;
+    border-left: 2px solid var(--accent);
+    background: var(--accent-dim);
+    border-radius: 0 8px 8px 0;
+    margin: 32px 0;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .callout strong { color: var(--text); }
+
+  /* ─── AUTHOR ─── */
+  .author-card {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  @media (max-width: 400px) {
+    .author-card { grid-template-columns: 1fr; }
+  }
+
+  .author-avatar {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .author-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .author-card .role {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .cred-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .cred-list li {
+    font-size: 14px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 10px;
+  }
+
+  .cred-list li::before {
+    content: '✓';
+    color: var(--accent);
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ─── PRICING ─── */
+  .pricing-card {
+    border: 1px solid rgba(62,207,178,0.3);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .pricing-header {
+    padding: 32px 32px 24px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pricing-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  .pricing-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .pricing-price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .pricing-price .amount {
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .pricing-price .currency {
+    font-size: 18px;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .pricing-body {
+    padding: 28px 32px 32px;
+    background: var(--surface-2);
+  }
+
+  .includes-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .includes-list li {
+    display: flex;
+    gap: 14px;
+    font-size: 15px;
+    color: var(--text-muted);
+    align-items: flex-start;
+  }
+
+  .includes-list li .check {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--accent-dim);
+    border: 1px solid rgba(62,207,178,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .includes-list li strong { color: var(--text); }
+
+  /* ─── CTA BUTTON ─── */
+  .btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 18px 32px;
+    background: var(--accent);
+    color: #0a0c10;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary:hover { background: #4ae0c8; }
+  .btn-primary:active { transform: scale(0.99); }
+
+  .btn-arrow {
+    font-size: 18px;
+    transition: transform 0.2s;
+  }
+
+  .btn-primary:hover .btn-arrow { transform: translateX(3px); }
+
+  .guarantee {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  /* ─── FAQ ─── */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .faq-q {
+    padding: 18px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    gap: 12px;
+  }
+
+  .faq-q:hover { background: var(--surface-2); }
+
+  .faq-icon {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    color: var(--accent);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  .faq-a {
+    display: none;
+    padding: 0 20px 18px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    background: var(--surface-2);
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  .faq-item.open .faq-a { display: block; }
+
+  /* ─── AI REVIEWS ─── */
+  .avg-score-block {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 32px;
+    background: var(--surface);
+    border: 1px solid rgba(62,207,178,0.25);
+    border-radius: 12px;
+    margin-bottom: 32px;
+  }
+
+  .avg-number {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 52px;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .avg-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .avg-label {
+    font-size: 13px;
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .avg-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  .avg-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .ai-bar-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 52px;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .ai-bar-row:hover,
+  .ai-bar-row.active {
+    background: var(--surface);
+    border-color: var(--border);
+  }
+
+  .ai-bar-row.active { border-color: rgba(62,207,178,0.2); }
+
+  .ai-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .ai-bar-track {
+    height: 6px;
+    background: var(--surface-2);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .ai-bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: var(--accent);
+    transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .ai-score-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    text-align: right;
+  }
+
+  .review-panels {
+    position: relative;
+  }
+
+  .review-panel {
+    display: none;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    animation: fadeUp 0.25s ease;
+  }
+
+  .review-panel.visible { display: block; }
+
+  .review-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .review-panel-ai {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .review-panel-ai .ai-logo {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+
+  .review-panel-ai .ai-fullname {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .review-panel-ai .ai-org {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  .review-panel-score {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .review-panel-body {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .review-panel-body p + p { margin-top: 12px; }
+
+  .review-panel-body strong { color: var(--text); }
+
+  .review-panel-body ul {
+    margin: 10px 0 10px 4px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .review-panel-body ul li {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .review-panel-body ul li::before {
+    content: '·';
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .review-date {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 40px 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  footer a { color: var(--text-muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+
+  /* ─── STICKY CTA (mobile) ─── */
+  .sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    padding: 16px 20px;
+    background: rgba(10,12,16,0.95);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border);
+    z-index: 100;
+  }
+
+  @media (max-width: 600px) {
+    .sticky-cta { display: block; }
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero > * {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero .label { animation-delay: 0.1s; }
+  .hero h1 { animation-delay: 0.2s; }
+  .hero .subtitle { animation-delay: 0.3s; }
+  .hero .author-line { animation-delay: 0.4s; }
+
+  /* ─── UTILITY ─── */
+  .mt-8 { margin-top: 8px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-24 { margin-top: 24px; }
+  .mt-32 { margin-top: 32px; }
+  .text-accent { color: var(--accent); }
+  .text-muted { color: var(--text-muted); }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="container">
+    <div class="label">E-book + Prompt Pack</div>
+    <h1>อย่าใช้ AI ช่วยลงทุน<br><em>ถ้ายังไม่อ่านเล่มนี้</em></h1>
+    <p class="subtitle">คู่มือฉบับนักลงทุนที่อยากใช้ AI ให้ได้ผลจริง ไม่ใช่แค่ทดลองเล่น</p>
+    <div class="author-line">
+      <strong>อ.ใหม่ ธนภัทร ธนิชานนท์</strong>
+      <span class="dot"></span>
+      <span>Investment Planner · Trader · วิทยากรการเงินการลงทุน · ผู้ใช้ AI ลงทุนจริง</span>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ─── PROBLEM ─── -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="label">ปัญหาที่พบบ่อย</div>
+      <h2>คุณเคยเจอแบบนี้ไหม?</h2>
+    </div>
+    <ul class="problem-list">
+      <li>ถาม AI เรื่องราคาหุ้น แล้วเชื่อตามโดยไม่รู้ว่าข้อมูลเก่าไปสองปี</li>
+      <li>ใช้ AI ตัวเดียวกันกับคนอื่น แต่ได้คำตอบที่ด้อยกว่ามาก ไม่รู้ว่าทำอะไรผิด</li>
+      <li>AI ตอบมาครบถ้วนน่าเชื่อถือ แต่พอตรวจสอบจริงพบว่าข้อมูลไม่มีอยู่จริง</li>
+      <li>ไม่รู้จะเอา AI มาช่วยงานการลงทุนจริงๆ ได้ยังไง นอกจากแค่ถามคำถามทั่วไป</li>
+    </ul>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ─── BOOK ─── -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="label">เกี่ยวกับหนังสือ</div>
+      <h2>สิ่งที่คุณจะได้รับ</h2>
+      <p>ไม่ใช่คู่มือเทคนิค AI และไม่ได้สอนให้เชื่อ AI ทุกอย่าง แต่สอนวิธีคิดและวิธีใช้ที่ทดสอบมาจากงานจริง</p>
+    </div>
+
+    <div class="book-card">
+      <div class="book-cover">
+        <div class="book-cover-text">
+          <div class="title-th">อย่าใช้ AI ช่วยลงทุน<br>ถ้ายังไม่อ่านเล่มนี้</div>
+          <div class="title-en">AI FOR INVESTORS</div>
+        </div>
+      </div>
+      <div class="book-info">
+        <h3>อย่าใช้ AI ช่วยลงทุน ถ้ายังไม่อ่านเล่มนี้</h3>
+        <div class="by">โดย อ.ใหม่ ธนภัทร ธนิชานนท์</div>
+        <div class="book-stats">
+          <div class="book-stat">
+            <span class="num">81</span>
+            <span class="lbl">หน้า</span>
+          </div>
+          <div class="book-stat">
+            <span class="num">13</span>
+            <span class="lbl">บท</span>
+          </div>
+          <div class="book-stat">
+            <span class="num">32</span>
+            <span class="lbl">Prompt พร้อมใช้</span>
+          </div>
+          <div class="book-stat">
+            <span class="num">4</span>
+            <span class="lbl">Parts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toc-parts">
+      <div class="toc-part">
+        <div class="toc-part-header">
+          <span class="part-num">PART 1</span>
+          <span class="part-title">เข้าใจ AI ก่อนให้มันแตะเงินคุณ</span>
+          <span class="part-sub">3 บท</span>
+        </div>
+        <div class="toc-chapters">
+          <div class="toc-chapter">AI คืออะไรในบริบทการลงทุน — และไม่ใช่อะไร</div>
+          <div class="toc-chapter">ทำไมบางคนใช้ AI เหมือนกันแต่ได้ผลต่างกัน</div>
+          <div class="toc-chapter">Hallucination — เมื่อ AI พูดมั่นใจแต่ผิด 100%</div>
+        </div>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-header">
+          <span class="part-num">PART 2</span>
+          <span class="part-title">เราใช้ AI สำหรับงานไหนบ้าง</span>
+          <span class="part-sub">7 บท</span>
+        </div>
+        <div class="toc-chapters">
+          <div class="toc-chapter">ใช้ AI ช่วยคัดกรองหลักทรัพย์</div>
+          <div class="toc-chapter">ให้ AI อ่านเอกสารการเงินแทนคุณ</div>
+          <div class="toc-chapter">ใช้ AI ช่วยวางแผนและจัดพอร์ตการลงทุน</div>
+          <div class="toc-chapter">ใช้ AI ช่วยติดตามข่าวและวิเคราะห์ภาพรวมตลาด</div>
+          <div class="toc-chapter">ใช้ AI ช่วยวางแผนเทรดและ Backtesting เบื้องต้น</div>
+          <div class="toc-chapter">ใช้ AI ช่วยวางแผนการเงินส่วนบุคคล</div>
+          <div class="toc-chapter">★ บทพิเศษ: เมื่อ AI กลายเป็นทีมงานของคุณ</div>
+        </div>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-header">
+          <span class="part-num">PART 3</span>
+          <span class="part-title">คุยกับ AI ให้ได้ผล</span>
+          <span class="part-sub">4 บท</span>
+        </div>
+        <div class="toc-chapters">
+          <div class="toc-chapter">Prompt ไม่ใช่คำสั่ง — มันคือการตั้งโจทย์</div>
+          <div class="toc-chapter">RCTF Framework — โครงสร้าง Prompt ที่ใช้ได้จริง</div>
+          <div class="toc-chapter">ใช้ Prompt สร้าง Prompt</div>
+          <div class="toc-chapter">วิธีตรวจสอบและ Fact-check สิ่งที่ AI บอก</div>
+        </div>
+      </div>
+      <div class="toc-part">
+        <div class="toc-part-header">
+          <span class="part-num">PART 4</span>
+          <span class="part-title">Claude vs ChatGPT: ทดสอบกับโจทย์การเงินจริง</span>
+          <span class="part-sub">ผลทดสอบจริง</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ─── PROMPT PACK ─── -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="label">Prompt Pack</div>
+      <h2>32 Prompt พร้อมใช้ ไม่ต้องพิมพ์เอง</h2>
+      <p>ทุก prompt ในหนังสือรวบรวมไว้ใน Notion template เปิด link แล้ว copy ไปวางใน AI ได้ทันที</p>
+    </div>
+    <div class="prompt-grid">
+      <div class="prompt-card">
+        <div class="icon">📊</div>
+        <h4>คัดกรองหลักทรัพย์</h4>
+        <p>เกณฑ์ screening ตามสไตล์การลงทุน</p>
+      </div>
+      <div class="prompt-card">
+        <div class="icon">📄</div>
+        <h4>อ่านเอกสารการเงิน</h4>
+        <p>งบการเงิน Fact Sheet Annual Report</p>
+      </div>
+      <div class="prompt-card">
+        <div class="icon">🗂</div>
+        <h4>วางแผนพอร์ต</h4>
+        <p>5 ขั้นตอนวางแผนการลงทุนแบบมืออาชีพ</p>
+      </div>
+      <div class="prompt-card">
+        <div class="icon">📰</div>
+        <h4>ติดตามข่าว Macro</h4>
+        <p>Morning briefing และวิเคราะห์ผลกระทบ</p>
+      </div>
+      <div class="prompt-card">
+        <div class="icon">📈</div>
+        <h4>วางแผนเทรด</h4>
+        <p>Trade journal และ Backtesting เชิงตรรกะ</p>
+      </div>
+      <div class="prompt-card">
+        <div class="icon">💰</div>
+        <h4>การเงินส่วนบุคคล</h4>
+        <p>เป้าหมาย กระแสเงินสด และวางแผนภาษี</p>
+      </div>
+    </div>
+    <div class="prompt-total">
+      <strong>32</strong>
+      <span>prompt ที่ผ่านการทดสอบจริงและพร้อมใช้งานทันที — ไม่ต้องเขียนเอง</span>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ─── AUTHOR ─── -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="label">ผู้เขียน</div>
+      <h2>ทำไมถึงเชื่อได้</h2>
+    </div>
+    <div class="author-card">
+      <div class="author-avatar">👨‍💼</div>
+      <div>
+        <h3>อ.ใหม่ ธนภัทร ธนิชานนท์</h3>
+        <div class="role">Investment Planner (IP)</div>
+        <ul class="cred-list">
+          <li>ประสบการณ์สอนมากกว่า 15 ปี | มากกว่า 300 หลักสูตร</li>
+          <li>สอน IC, CFP, Stock &amp; Option, Forex</li>
+          <li>ผู้พัฒนา PTM System สำหรับ Trend Following</li>
+          <li>Topstep Certified Funded Trader — December 2025</li>
+          <li>ผู้ติดตามเพจ 10,000+ คน</li>
+          <li>สอน AI Mastery for Investment Consultant</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>หนังสือเล่มนี้เกิดจากคำถามจริงในห้องเรียน</strong> — จากการสอนนักลงทุนและที่ปรึกษาการเงินหลายร้อยคน ผมพบว่าปัญหาส่วนใหญ่ไม่ใช่ "ไม่รู้จัก AI" แต่คือ "เข้าใจ AI ผิด" และความเข้าใจผิดนั้น มักมีราคาที่ต้องจ่าย
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ─── AI REVIEWS ─── -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">AI Reviews</div>
+      <h2>4 AI ประเมินอิสระ — ให้คะแนนเฉลี่ยเท่าไหร่?</h2>
+      <p>ส่ง manuscript จริงให้ AI แต่ละตัวอ่านและประเมินอิสระจากกัน คลิกที่แต่ละ AI เพื่อดูรีวิวฉบับเต็ม</p>
+    </div>
+
+    <!-- Average score -->
+    <div class="avg-score-block">
+      <div class="avg-number">9.1</div>
+      <div class="avg-detail">
+        <div class="avg-label">คะแนนเฉลี่ย / 10</div>
+        <div class="avg-sub">จาก 4 AI ได้แก่ Claude, ChatGPT, Gemini และ Manus</div>
+      </div>
+    </div>
+
+    <!-- Score bars -->
+    <div class="avg-bars">
+      <div class="ai-bar-row active" onclick="showReview('claude', this)">
+        <span class="ai-name">Claude</span>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="width:85%"></div></div>
+        <span class="ai-score-num">8.5</span>
+      </div>
+      <div class="ai-bar-row" onclick="showReview('chatgpt', this)">
+        <span class="ai-name">ChatGPT</span>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="width:93%"></div></div>
+        <span class="ai-score-num">9.3</span>
+      </div>
+      <div class="ai-bar-row" onclick="showReview('gemini', this)">
+        <span class="ai-name">Gemini</span>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="width:95%"></div></div>
+        <span class="ai-score-num">9.5</span>
+      </div>
+      <div class="ai-bar-row" onclick="showReview('manus', this)">
+        <span class="ai-name">Manus</span>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="width:90%"></div></div>
+        <span class="ai-score-num">9.0</span>
+      </div>
+    </div>
+
+    <!-- Review panels -->
+    <div class="review-panels">
+
+      <div class="review-panel visible" id="review-claude">
+        <div class="review-panel-header">
+          <div class="review-panel-ai">
+            <div class="ai-logo">◆</div>
+            <div>
+              <div class="ai-fullname">Claude Sonnet 4.6</div>
+              <div class="ai-org">Anthropic</div>
+            </div>
+          </div>
+          <div class="review-panel-score">8.5 / 10</div>
+        </div>
+        <div class="review-panel-body">
+          <p>หนังสือเล่มนี้แก้ปัญหาที่นักลงทุนส่วนใหญ่เจอจริง — ใช้ AI อยู่แต่ได้ผลไม่ดี ไม่รู้ว่าทำอะไรผิด หรือไม่รู้จะเอา AI มาช่วยงานการเงินจริงๆ ได้ยังไง</p>
+          <p>จุดที่ทำให้โดดเด่นกว่า ebook AI ทั่วไปคือผู้เขียนกล้าพูดตรงๆ ว่า AI ทำอะไรไม่ได้และเมื่อไหร่ที่ห้ามเชื่อ ซึ่งสร้างความน่าเชื่อถือมากกว่าการขายฝัน ทุกบทมี prompt ที่ทดสอบมาจากงานจริงพร้อมให้ใช้ได้เลย และ Prompt Pack 32 อันใน Notion ช่วยลด friction ได้มากสำหรับคนที่อยากเริ่มแต่ไม่รู้จะถามอะไร</p>
+          <p><strong>เหมาะกับ:</strong> นักลงทุนรายบุคคล ที่ปรึกษาการเงิน และ IC ที่อยากใช้ AI เป็นเครื่องมือจริงๆ ไม่ใช่แค่ทดลองเล่น</p>
+        </div>
+        <div class="review-date">Reviewed by Claude Sonnet 4.6 · Anthropic · 20 มีนาคม 2569</div>
+      </div>
+
+      <div class="review-panel" id="review-chatgpt">
+        <div class="review-panel-header">
+          <div class="review-panel-ai">
+            <div class="ai-logo">◎</div>
+            <div>
+              <div class="ai-fullname">ChatGPT Auto (GPT 5.3)</div>
+              <div class="ai-org">OpenAI</div>
+            </div>
+          </div>
+          <div class="review-panel-score">9.3 / 10</div>
+        </div>
+        <div class="review-panel-body">
+          <p>Ebook + Prompt Pack เล่มนี้โดดเด่นตรงที่ไม่ได้แค่สอน "ใช้ AI" แต่สอน "ใช้ AI ให้ไม่พลาดในการลงทุน" ซึ่งเป็น pain point สำคัญที่นักลงทุนส่วนใหญ่ยังไม่รู้ตัว</p>
+          <p>หนังสือช่วยแก้ปัญหาที่ AI อาจให้คำตอบที่ดูดีแต่ผิด และอาจนำไปสู่การตัดสินใจที่เสียเงินจริง โดยอธิบายตั้งแต่ mindset วิธีคิด ไปจนถึงการใช้งานจริงอย่างเป็นระบบ</p>
+          <p>จุดแข็งคือการเชื่อมระหว่าง "ความเข้าใจ" และ "การลงมือใช้" ผ่าน Prompt ที่มีโครงสร้างและสามารถนำไปใช้วิเคราะห์หุ้น กองทุน และข่าวเศรษฐกิจได้ทันที รวมถึง Prompt Pack ที่ช่วยลดเวลาและเพิ่มคุณภาพการใช้งาน AI อย่างชัดเจน</p>
+          <p><strong>เหมาะกับ:</strong> นักลงทุนที่เริ่มใช้ AI, ผู้ใช้งาน ChatGPT ที่ต้องการยกระดับการใช้งานด้านการเงิน รวมถึง IC และผู้ที่ต้องการใช้ AI เป็นเครื่องมือจริงในการตัดสินใจ ไม่ใช่แค่ทดลองเล่น</p>
+        </div>
+        <div class="review-date">Reviewed by ChatGPT · OpenAI · 20 มีนาคม 2569</div>
+      </div>
+
+      <div class="review-panel" id="review-gemini">
+        <div class="review-panel-header">
+          <div class="review-panel-ai">
+            <div class="ai-logo">✦</div>
+            <div>
+              <div class="ai-fullname">Gemini</div>
+              <div class="ai-org">Google</div>
+            </div>
+          </div>
+          <div class="review-panel-score">9.5 / 10</div>
+        </div>
+        <div class="review-panel-body">
+          <p>เปลี่ยนการใช้ AI จากแค่ "แชทเล่น" ให้กลายเป็น "เครื่องมือวิเคราะห์การลงทุน" อย่างเป็นระบบ โดดเด่นด้วยการสอน RCTF Framework ที่ช่วยให้คุณคุมบังเหียน AI ให้ตอบโจทย์การเงินได้อย่างแม่นยำ พร้อมการเปรียบเทียบผลลัพธ์ระหว่าง Claude และ ChatGPT ที่ใช้งานได้จริง</p>
+          <p><strong>แก้ปัญหา:</strong></p>
+          <ul>
+            <li><strong>Prompting Gap</strong> — แก้ปัญหาการสั่งงาน AI แล้วไม่ได้คำตอบที่เอาไปใช้งานได้จริง</li>
+            <li><strong>Information Overload</strong> — ช่วยสรุป Fund Fact Sheet และวิเคราะห์ข้อมูลมหาศาลให้เหลือเพียงใจความสำคัญในไม่กี่วินาที</li>
+            <li><strong>Human Bias</strong> — ใช้ AI เป็นคู่คิด (Second Opinion) เพื่อตรวจสอบความเสี่ยงและลดอคติในการตัดสินใจ</li>
+          </ul>
+          <p><strong>เหมาะกับ:</strong> นักลงทุนมือใหม่และมือโปรที่ต้องการติดอาวุธ AI, ที่ปรึกษาการเงิน IC/IP ที่ต้องการยกระดับการทำงาน และผู้ที่ต้องการ Prompt Pack สำเร็จรูปเพื่อ Copy-Paste ใช้งานได้ทันที</p>
+        </div>
+        <div class="review-date">Reviewed by Gemini · Google · 20 มีนาคม 2569</div>
+      </div>
+
+      <div class="review-panel" id="review-manus">
+        <div class="review-panel-header">
+          <div class="review-panel-ai">
+            <div class="ai-logo">⬡</div>
+            <div>
+              <div class="ai-fullname">Manus AI</div>
+              <div class="ai-org">Manus</div>
+            </div>
+          </div>
+          <div class="review-panel-score">9.0 / 10</div>
+        </div>
+        <div class="review-panel-body">
+          <p>หนังสือเล่มนี้แก้ปัญหาที่นักลงทุนส่วนใหญ่เจอจริง — คือใช้ AI แล้วได้ผลลัพธ์กว้างเกินไป หรือไม่กล้าใช้กับเงินจริงเพราะกลัว AI มโน (Hallucination) เล่มนี้จึงมาช่วยจัดระเบียบวิธีคิดและวิธีสั่งงานให้แม่นยำขึ้น</p>
+          <p>จุดที่ทำให้โดดเด่นกว่า ebook AI ทั่วไปคือการนำเสนอ <strong>RCTF Framework</strong> ที่เป็นโครงสร้างการสั่งงานแบบมืออาชีพ และการกล้าเตือนจุดอ่อนของ AI อย่างตรงไปตรงมาเพื่อให้นักลงทุนปลอดภัยที่สุด นอกจากนี้ Prompt Pack 32 ชุดใน Notion ยังช่วยตัดขั้นตอนการพิมพ์เองออกไป ทำให้พร้อมใช้งานทันทีแบบ Plug &amp; Play</p>
+          <p><strong>เหมาะกับ:</strong> นักลงทุนรายบุคคล และที่ปรึกษาการเงิน (IC/FA) ที่ต้องการเปลี่ยน AI จากของเล่นให้กลายเป็น "ทีมงานวิเคราะห์" ที่ทำงานได้จริงและไวขึ้น</p>
+        </div>
+        <div class="review-date">Reviewed by Manus AI · 20 มีนาคม 2569</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ─── PRICING ─── -->
+<section id="buy">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">ราคา</div>
+      <h2>รับทันทีหลังชำระเงิน</h2>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-header">
+        <div class="pricing-label">🎉 ราคาเปิดตัว — จำกัดเวลา</div>
+        <div class="pricing-title">E-book + Prompt Pack</div>
+        <div class="pricing-price">
+          <span style="font-size:18px; color:var(--text-dim); text-decoration:line-through; font-weight:400; margin-right:10px;">990</span>
+          <span class="amount">490</span>
+          <span class="currency">บาท</span>
+        </div>
+        <div style="font-size:13px; color:var(--accent); margin-top:6px;">ประหยัด 500 บาท (50%) · ราคานี้มีจำนวนจำกัด</div>
+      </div>
+      <div class="pricing-body">
+        <ul class="includes-list">
+          <li>
+            <span class="check">✓</span>
+            <div><strong>E-book PDF ฉบับเต็ม</strong> — 81 หน้า 13 บท ดาวน์โหลดได้ทันที</div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div><strong>Notion Prompt Pack</strong> — 32 prompt พร้อมใช้ copy ไปวางใน AI ได้เลย</div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div><strong>อัปเดตฟรีตลอด</strong> — ได้รับ version ใหม่โดยไม่มีค่าใช้จ่ายเพิ่ม</div>
+          </li>
+        </ul>
+        <a href="#" class="btn-primary">
+          สั่งซื้อและดาวน์โหลดทันที <span class="btn-arrow">→</span>
+        </a>
+        <p class="guarantee">📧 ได้รับลิงก์ดาวน์โหลดทางอีเมลทันทีหลังชำระเงิน</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ─── FAQ ─── -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="label">คำถามที่พบบ่อย</div>
+      <h2>FAQ</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ต้องมีความรู้ด้าน AI มาก่อนไหม?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">ไม่จำเป็นครับ หนังสือเล่มนี้เขียนสำหรับนักลงทุนทั่วไปที่เริ่มสนใจ AI โดยเฉพาะ ไม่มีศัพท์เทคนิคซับซ้อน และอธิบายทุกอย่างในบริบทการลงทุนที่คุ้นเคย</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ต้องใช้ AI ตัวไหน? มีค่าใช้จ่ายเพิ่มไหม?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">ใช้ได้กับ ChatGPT (รวมถึง free tier), Claude, Gemini หรือ AI ตัวอื่นๆ ครับ ใน Part 4 ยังมีการเปรียบเทียบผลลัพธ์จริงระหว่าง Claude และ ChatGPT ด้วย ไม่จำเป็นต้องสมัครแพลนแพงเพื่อเริ่มต้น</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Prompt Pack อยู่ในรูปแบบไหน?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">เป็น Notion template ที่แชร์ลิงก์ให้ครับ เปิดในเบราว์เซอร์ได้เลยโดยไม่ต้องสมัคร Notion หรือถ้ามี Notion account ก็ duplicate ไปใช้งานได้ทันที copy prompt แต่ละอันไปวางใน AI ได้เลย ไม่ต้องพิมพ์ใหม่</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          เหมาะกับที่ปรึกษาการเงิน / IC ไหม?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">เหมาะมากครับ บทที่ 5–9 เน้นการใช้ AI ช่วยงานที่ปรึกษาโดยเฉพาะ ทั้งการอ่านเอกสารให้ลูกค้า วางแผนพอร์ต และการเงินส่วนบุคคล รวมถึงมีบทพิเศษเรื่องการใช้ AI สร้างเครื่องมือทำงานของตัวเอง</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ชำระเงินได้ช่องทางไหนบ้าง?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">รองรับบัตรเครดิต/เดบิต และชำระเงินผ่านช่องทางออนไลน์ครับ ได้รับไฟล์และลิงก์ Notion ทางอีเมลทันทีหลังชำระเงินสำเร็จ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ─── FINAL CTA ─── -->
+<section style="padding: 64px 0;">
+  <div class="container" style="text-align: center;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 20px;">เริ่มต้นได้วันนี้</div>
+    <h2 style="font-size: clamp(22px, 3.5vw, 32px); font-weight: 700; color: #fff; margin-bottom: 12px; letter-spacing: -0.02em; line-height: 1.3;">"AI ไม่ได้มาแทนนักลงทุน<br>แต่นักลงทุนที่ใช้ AI เป็น<br>จะแทนคนที่ไม่ใช้"</h2>
+    <p style="color: var(--text-dim); font-size: 14px; margin-bottom: 40px;">— ธนภัทร ธนิชานนท์</p>
+    <a href="#buy" class="btn-primary" style="max-width: 360px; margin: 0 auto;">
+      รับ E-book + Prompt Pack ทันที <span class="btn-arrow">→</span>
+    </a>
+    <p style="margin-top: 16px; font-size: 13px; color: var(--text-dim);">490 บาท (ราคาเปิดตัว) · ดาวน์โหลดได้ทันทีหลังชำระ</p>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<div class="rule"></div>
+<footer>
+  <div class="container">
+    <p>© 2025 ธนภัทร ธนิชานนท์ · <a href="https://www.facebook.com/thethanaphat/">Facebook</a> · <a href="https://lin.ee/DqN5rJB">Line OA</a></p>
+  </div>
+</footer>
+
+<!-- ─── STICKY CTA ─── -->
+<div class="sticky-cta">
+  <a href="#buy" class="btn-primary">
+    รับ E-book + Prompt Pack · 490 บาท (เปิดตัว) <span class="btn-arrow">→</span>
+  </a>
+</div>
+
+<script>
+  function showReview(id, rowEl) {
+    document.querySelectorAll('.review-panel').forEach(p => p.classList.remove('visible'));
+    document.querySelectorAll('.ai-bar-row').forEach(r => r.classList.remove('active'));
+    document.getElementById('review-' + id).classList.add('visible');
+    rowEl.classList.add('active');
+  }
+
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
