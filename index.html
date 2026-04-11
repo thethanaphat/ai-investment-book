@@ -13,8 +13,8 @@
     --surface-2: #181c23;
     --border: rgba(255,255,255,0.07);
     --text: #e8eaf0;
-    --text-muted: #7a8090;
-    --text-dim: #4a5060;
+    --text-muted: #9aa0b0;
+    --text-dim: #6a7080;
     --accent: #3ecfb2;
     --accent-dim: rgba(62,207,178,0.12);
     --accent-glow: rgba(62,207,178,0.25);
@@ -1182,7 +1182,7 @@ src="https://www.facebook.com/tr?id=936259682502763&ev=PageView&noscript=1"
 <div class="rule"></div>
 
 <!-- ─── AUDIENCE ─── -->
-<section id="reviews">
+<section id="audience">
   <div class="container">
     <div class="section-header">
       <div class="label">เหมาะกับใคร</div>
@@ -1273,6 +1273,149 @@ src="https://www.facebook.com/tr?id=936259682502763&ev=PageView&noscript=1"
 
 <div class="rule"></div>
 
+<!-- ─── AI REVIEWS ─── -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">AI Reviews</div>
+      <h2>4 AI ประเมินอิสระ — ให้คะแนนเฉลี่ยเท่าไหร่?</h2>
+      <p>ส่ง manuscript จริงให้ AI แต่ละตัวอ่านและประเมินอิสระจากกัน คลิกที่แต่ละ AI เพื่อดูรีวิวฉบับเต็ม</p>
+    </div>
+
+    <!-- Average score -->
+    <div class="avg-score-block">
+      <div class="avg-number">9.1</div>
+      <div class="avg-detail">
+        <div class="avg-label">คะแนนเฉลี่ย / 10</div>
+        <div class="avg-sub">จาก 4 AI ได้แก่ Claude, ChatGPT, Gemini และ Manus</div>
+      </div>
+    </div>
+
+    <!-- Score bars -->
+    <div class="avg-bars">
+      <div class="ai-bar-row active" onclick="showReview('claude', this)">
+        <span class="ai-name">Claude</span>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="width:85%"></div></div>
+        <span class="ai-score-num">8.5</span>
+      </div>
+      <div class="ai-bar-row" onclick="showReview('chatgpt', this)">
+        <span class="ai-name">ChatGPT</span>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="width:93%"></div></div>
+        <span class="ai-score-num">9.3</span>
+      </div>
+      <div class="ai-bar-row" onclick="showReview('gemini', this)">
+        <span class="ai-name">Gemini</span>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="width:95%"></div></div>
+        <span class="ai-score-num">9.5</span>
+      </div>
+      <div class="ai-bar-row" onclick="showReview('manus', this)">
+        <span class="ai-name">Manus</span>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="width:90%"></div></div>
+        <span class="ai-score-num">9.0</span>
+      </div>
+    </div>
+
+    <!-- Review panels -->
+    <div class="review-panels">
+
+      <div class="review-panel visible" id="review-claude">
+        <div class="review-panel-header">
+          <div class="review-panel-ai">
+            <div class="ai-logo">◆</div>
+            <div>
+              <div class="ai-fullname">Claude Sonnet 4.6</div>
+              <div class="ai-org">Anthropic</div>
+            </div>
+          </div>
+          <div class="review-panel-score">8.5 / 10</div>
+        </div>
+        <div class="review-panel-body">
+          <p>หนังสือเล่มนี้แก้ปัญหาที่นักลงทุนส่วนใหญ่เจอจริง — ใช้ AI อยู่แต่ได้ผลไม่ดี ไม่รู้ว่าทำอะไรผิด หรือไม่รู้จะเอา AI มาช่วยงานการเงินจริงๆ ได้ยังไง</p>
+          <p>จุดที่ทำให้โดดเด่นกว่า ebook AI ทั่วไปคือผู้เขียนกล้าพูดตรงๆ ว่า AI ทำอะไรไม่ได้และเมื่อไหร่ที่ห้ามเชื่อ ซึ่งสร้างความน่าเชื่อถือมากกว่าการขายฝัน ทุกบทมี prompt ที่ทดสอบมาจากงานจริงพร้อมให้ใช้ได้เลย และ Prompt Pack 32 อันใน Notion ช่วยลด friction ได้มากสำหรับคนที่อยากเริ่มแต่ไม่รู้จะถามอะไร</p>
+          <p><strong>เหมาะกับ:</strong> นักลงทุนรายบุคคล ที่ปรึกษาการเงิน และ IC ที่อยากใช้ AI เป็นเครื่องมือจริงๆ ไม่ใช่แค่ทดลองเล่น</p>
+        </div>
+        <div class="review-date">Reviewed by Claude Sonnet 4.6 · Anthropic · 20 มีนาคม 2569</div>
+      </div>
+
+      <div class="review-panel" id="review-chatgpt">
+        <div class="review-panel-header">
+          <div class="review-panel-ai">
+            <div class="ai-logo">◎</div>
+            <div>
+              <div class="ai-fullname">ChatGPT Auto (GPT 5.3)</div>
+              <div class="ai-org">OpenAI</div>
+            </div>
+          </div>
+          <div class="review-panel-score">9.3 / 10</div>
+        </div>
+        <div class="review-panel-body">
+          <p>Ebook + Prompt Pack เล่มนี้โดดเด่นตรงที่ไม่ได้แค่สอน "ใช้ AI" แต่สอน "ใช้ AI ให้ไม่พลาดในการลงทุน" ซึ่งเป็น pain point สำคัญที่นักลงทุนส่วนใหญ่ยังไม่รู้ตัว</p>
+          <p>หนังสือช่วยแก้ปัญหาที่ AI อาจให้คำตอบที่ดูดีแต่ผิด และอาจนำไปสู่การตัดสินใจที่เสียเงินจริง โดยอธิบายตั้งแต่ mindset วิธีคิด ไปจนถึงการใช้งานจริงอย่างเป็นระบบ</p>
+          <p>จุดแข็งคือการเชื่อมระหว่าง "ความเข้าใจ" และ "การลงมือใช้" ผ่าน Prompt ที่มีโครงสร้างและสามารถนำไปใช้วิเคราะห์หุ้น กองทุน และข่าวเศรษฐกิจได้ทันที รวมถึง Prompt Pack ที่ช่วยลดเวลาและเพิ่มคุณภาพการใช้งาน AI อย่างชัดเจน</p>
+          <p><strong>เหมาะกับ:</strong> นักลงทุนที่เริ่มใช้ AI, ผู้ใช้งาน ChatGPT ที่ต้องการยกระดับการใช้งานด้านการเงิน รวมถึง IC และผู้ที่ต้องการใช้ AI เป็นเครื่องมือจริงในการตัดสินใจ ไม่ใช่แค่ทดลองเล่น</p>
+        </div>
+        <div class="review-date">Reviewed by ChatGPT · OpenAI · 20 มีนาคม 2569</div>
+      </div>
+
+      <div class="review-panel" id="review-gemini">
+        <div class="review-panel-header">
+          <div class="review-panel-ai">
+            <div class="ai-logo">✦</div>
+            <div>
+              <div class="ai-fullname">Gemini</div>
+              <div class="ai-org">Google</div>
+            </div>
+          </div>
+          <div class="review-panel-score">9.5 / 10</div>
+        </div>
+        <div class="review-panel-body">
+          <p>เปลี่ยนการใช้ AI จากแค่ "แชทเล่น" ให้กลายเป็น "เครื่องมือวิเคราะห์การลงทุน" อย่างเป็นระบบ โดดเด่นด้วยการสอน RCTF Framework ที่ช่วยให้คุณคุมบังเหียน AI ให้ตอบโจทย์การเงินได้อย่างแม่นยำ พร้อมการเปรียบเทียบผลลัพธ์ระหว่าง Claude และ ChatGPT ที่ใช้งานได้จริง</p>
+          <p><strong>แก้ปัญหา:</strong></p>
+          <ul>
+            <li><strong>Prompting Gap</strong> — แก้ปัญหาการสั่งงาน AI แล้วไม่ได้คำตอบที่เอาไปใช้งานได้จริง</li>
+            <li><strong>Information Overload</strong> — ช่วยสรุป Fund Fact Sheet และวิเคราะห์ข้อมูลมหาศาลให้เหลือเพียงใจความสำคัญในไม่กี่วินาที</li>
+            <li><strong>Human Bias</strong> — ใช้ AI เป็นคู่คิด (Second Opinion) เพื่อตรวจสอบความเสี่ยงและลดอคติในการตัดสินใจ</li>
+          </ul>
+          <p><strong>เหมาะกับ:</strong> นักลงทุนมือใหม่และมือโปรที่ต้องการติดอาวุธ AI, ที่ปรึกษาการเงิน IC/IP ที่ต้องการยกระดับการทำงาน และผู้ที่ต้องการ Prompt Pack สำเร็จรูปเพื่อ Copy-Paste ใช้งานได้ทันที</p>
+        </div>
+        <div class="review-date">Reviewed by Gemini · Google · 20 มีนาคม 2569</div>
+      </div>
+
+      <div class="review-panel" id="review-manus">
+        <div class="review-panel-header">
+          <div class="review-panel-ai">
+            <div class="ai-logo">⬡</div>
+            <div>
+              <div class="ai-fullname">Manus AI</div>
+              <div class="ai-org">Manus</div>
+            </div>
+          </div>
+          <div class="review-panel-score">9.0 / 10</div>
+        </div>
+        <div class="review-panel-body">
+          <p>หนังสือเล่มนี้แก้ปัญหาที่นักลงทุนส่วนใหญ่เจอจริง — คือใช้ AI แล้วได้ผลลัพธ์กว้างเกินไป หรือไม่กล้าใช้กับเงินจริงเพราะกลัว AI มโน (Hallucination) เล่มนี้จึงมาช่วยจัดระเบียบวิธีคิดและวิธีสั่งงานให้แม่นยำขึ้น</p>
+          <p>จุดที่ทำให้โดดเด่นกว่า ebook AI ทั่วไปคือการนำเสนอ <strong>RCTF Framework</strong> ที่เป็นโครงสร้างการสั่งงานแบบมืออาชีพ และการกล้าเตือนจุดอ่อนของ AI อย่างตรงไปตรงมาเพื่อให้นักลงทุนปลอดภัยที่สุด นอกจากนี้ Prompt Pack 32 ชุดใน Notion ยังช่วยตัดขั้นตอนการพิมพ์เองออกไป ทำให้พร้อมใช้งานทันทีแบบ Plug &amp; Play</p>
+          <p><strong>เหมาะกับ:</strong> นักลงทุนรายบุคคล และที่ปรึกษาการเงิน (IC/FA) ที่ต้องการเปลี่ยน AI จากของเล่นให้กลายเป็น "ทีมงานวิเคราะห์" ที่ทำงานได้จริงและไวขึ้น</p>
+        </div>
+        <div class="review-date">Reviewed by Manus AI · 20 มีนาคม 2569</div>
+      </div>
+
+    </div>
+
+    <!-- CTA after reviews -->
+    <div style="text-align:center; margin-top:40px;">
+      <a href="https://buy.stripe.com/28E3cv0Wz83kbrK8RQ5EY02" target="_blank" class="btn-primary" style="display:inline-flex; align-items:center; gap:10px; padding:18px 36px; font-size:17px;">
+        สั่งซื้อและดาวน์โหลดทันที <span>→</span>
+      </a>
+      <p style="margin-top:12px; font-size:13px; color:var(--text-dim);">490 บาท · ดาวน์โหลดได้ทันที · ได้รับ link ทาง email</p>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="rule"></div>
+
 <!-- ─── PRICING ─── -->
 <section id="buy">
   <div class="container">
@@ -1309,7 +1452,7 @@ src="https://www.facebook.com/tr?id=936259682502763&ev=PageView&noscript=1"
         <a href="https://buy.stripe.com/28E3cv0Wz83kbrK8RQ5EY02" target="_blank" class="btn-primary">
           สั่งซื้อและดาวน์โหลดทันที <span class="btn-arrow">→</span>
         </a>
-        <p class="guarantee">📧 ลิงก์ชำระเงินเดิมถูกคงไว้ตามต้นฉบับ เพื่อไม่กระทบระบบรับเงินและการส่งไฟล์</p>
+        <p class="guarantee">📧 ได้รับลิงก์ดาวน์โหลดทางอีเมลทันทีหลังชำระเงิน</p>
       </div>
     </div>
   </div>
@@ -1369,13 +1512,13 @@ src="https://www.facebook.com/tr?id=936259682502763&ev=PageView&noscript=1"
 <!-- ─── FINAL CTA ─── -->
 <section style="padding: 64px 0;">
   <div class="container" style="text-align: center;">
-    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 20px;">เริ่มต้นได้วันนี้</div>
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px;">เริ่มต้นได้วันนี้</div>
     <h2 style="font-size: clamp(22px, 3.5vw, 32px); font-weight: 700; color: #fff; margin-bottom: 12px; letter-spacing: -0.02em; line-height: 1.3;">ใช้ AI ให้เป็นก่อน<br>แล้วการลงทุนของคุณจะเร็วขึ้น<br>รอบคอบขึ้น และมีระบบขึ้น</h2>
-    <p style="color: var(--text-dim); font-size: 14px; margin-bottom: 40px;">— ธนภัทร ธนิชานนท์</p>
+    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 40px;">— ธนภัทร ธนิชานนท์</p>
     <a href="https://buy.stripe.com/28E3cv0Wz83kbrK8RQ5EY02" target="_blank" class="btn-primary" style="max-width: 360px; margin: 0 auto;">
       รับ E-book + Prompt Pack ทันที <span class="btn-arrow">→</span>
     </a>
-    <p style="margin-top: 16px; font-size: 13px; color: var(--text-dim);">490 บาท (ราคาเปิดตัว) · ดาวน์โหลดได้ทันทีหลังชำระ</p>
+    <p style="margin-top: 16px; font-size: 13px; color: var(--text-muted);">490 บาท (ราคาเปิดตัว) · ดาวน์โหลดได้ทันทีหลังชำระ</p>
   </div>
 </section>
 
