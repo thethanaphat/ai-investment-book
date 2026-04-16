@@ -283,17 +283,6 @@
       }
       .book-card-copy h3{font-size:22px}
     }
-
-    /* Urgency badge */
-    .urgency-badge{
-      display:inline-flex;align-items:center;gap:7px;
-      background:rgba(224,92,92,.12);border:1px solid rgba(224,92,92,.25);
-      border-radius:999px;padding:6px 14px;font-size:13px;color:#e87070;
-      font-family:'IBM Plex Mono',monospace;margin-bottom:20px;
-    }
-    .urgency-badge::before{content:"●";font-size:8px;animation:pulse 1.5s ease infinite}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-    #countdown-text{font-weight:600}
   </style>
 
   <!-- Meta Pixel Code -->
@@ -320,8 +309,6 @@
   <section class="hero">
     <div class="wrap">
       <div class="label">E-book + Prompt Pack สำหรับนักลงทุน</div>
-
-      <div class="urgency-badge">ราคาเปิดตัว — <span id="countdown-text">กำลังนับ...</span></div>
 
       <h1>อย่าใช้ AI ช่วยลงทุน<br>ถ้ายังไม่อ่านเล่มนี้</h1>
       <p class="sub">คู่มือสำหรับคนที่อยากใช้ AI กับการลงทุนให้ <strong>เร็วขึ้น ฉลาดขึ้น และรอบคอบขึ้น</strong> โดยไม่พลาดเพราะข้อมูลเก่า คำตอบมั่ว หรือ prompt ที่กว้างเกินไป</p>
@@ -484,7 +471,7 @@
            onclick="fbq('track','InitiateCheckout',{value:490,currency:'THB',content_name:'AI Investment Ebook'})">
           เริ่มใช้งานได้ทันที — 490 บาท
         </a>
-        <div class="micro">ราคาเปิดตัว · <span id="countdown-text-2"></span></div>
+        <div class="micro">ราคา 490 บาท</div>
       </div>
     </div>
   </section>
@@ -690,39 +677,10 @@
     <div class="inner">
       <a class="btn" href="https://buy.stripe.com/28E3cv0Wz83kbrK8RQ5EY02?utm_source=landing&utm_medium=sticky&utm_campaign=ebook_launch"
          onclick="fbq('track','InitiateCheckout',{value:490,currency:'THB',content_name:'AI Investment Ebook'})">
-        ซื้อเลย 490 บาท — ราคาเปิดตัว
+        ซื้อเลย 490 บาท
       </a>
     </div>
   </div>
-  <script>
-  (function(){
-    var deadline = new Date('2025-04-30T23:59:59+07:00').getTime();
-    function updateCountdown(){
-      var now = new Date().getTime();
-      var diff = deadline - now;
-      var els = [document.getElementById('countdown-text'), document.getElementById('countdown-text-2')];
-      var text;
-      if(diff <= 0){
-        text = 'หมดเขตแล้ว';
-      } else {
-        var d = Math.floor(diff / (1000*60*60*24));
-        var h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-        var m = Math.floor((diff % (1000*60*60)) / (1000*60));
-        var s = Math.floor((diff % (1000*60)) / 1000);
-        if(d > 0){
-          text = 'เหลืออีก ' + d + ' วัน ' + h + ' ชม. ' + m + ' นาที';
-        } else if(h > 0){
-          text = 'เหลืออีก ' + h + ' ชม. ' + m + ' นาที ' + s + ' วินาที';
-        } else {
-          text = 'เหลืออีก ' + m + ' นาที ' + s + ' วินาที';
-        }
-      }
-      els.forEach(function(el){ if(el) el.textContent = text; });
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  })();
-  </script>
 
 </body>
 </html>
