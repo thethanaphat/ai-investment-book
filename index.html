@@ -283,6 +283,48 @@
       }
       .book-card-copy h3{font-size:22px}
     }
+
+
+    .alt-pay{margin-top:22px}
+    .alt-pay-divider{
+      display:flex;align-items:center;gap:12px;
+      margin:18px 0 14px;color:var(--dim);
+      font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .alt-pay-divider::before,
+    .alt-pay-divider::after{
+      content:"";flex:1;height:1px;background:var(--border);
+    }
+    .alt-pay-link{
+      display:flex;gap:14px;align-items:flex-start;
+      padding:16px 18px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:12px;
+      text-decoration:none;
+      color:var(--text);
+      transition:.18s ease;
+    }
+    .alt-pay-link:hover{
+      border-color:rgba(62,207,178,.4);
+      background:var(--surface-2);
+      transform:translateY(-1px);
+    }
+    .alt-pay-icon{
+      font-size:20px;flex-shrink:0;
+      width:36px;height:36px;border-radius:10px;
+      background:var(--accent-soft);
+      display:flex;align-items:center;justify-content:center;
+      border:1px solid rgba(62,207,178,.18);
+    }
+    .alt-pay-text{display:flex;flex-direction:column;gap:4px}
+    .alt-pay-text strong{
+      color:var(--text);font-size:15px;font-weight:600;
+    }
+    .alt-pay-sub{
+      font-size:13px;color:var(--muted);line-height:1.55;
+    }
   </style>
 
   <!-- Meta Pixel Code -->
@@ -297,6 +339,13 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '936259682502763');
   fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {
+    value: 490,
+    currency: 'THB',
+    content_ids: ['ai_investment_ebook'],
+    content_type: 'product',
+    content_name: 'AI Investment Ebook'
+  });
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=936259682502763&ev=PageView&noscript=1"
@@ -332,7 +381,7 @@
 
       <div class="cta-box">
         <a class="btn" href="https://buy.stripe.com/28E3cv0Wz83kbrK8RQ5EY02?utm_source=landing&utm_medium=hero&utm_campaign=ebook_launch"
-           onclick="fbq('track','InitiateCheckout',{value:490,currency:'THB',content_name:'AI Investment Ebook'})">
+           onclick="fbq('track','InitiateCheckout',{value:490,currency:'THB',content_ids:['ai_investment_ebook'],content_type:'product',content_name:'AI Investment Ebook'})">
           รับ E-book + Prompt Pack ทันที — 490 บาท
         </a>
         <div class="micro">ชำระผ่าน Stripe · ปลอดภัย · รับลิงก์ดาวน์โหลดทางอีเมลทันที</div>
@@ -468,7 +517,7 @@
 
       <div class="cta-box" style="margin-top:20px">
         <a class="btn" href="https://buy.stripe.com/28E3cv0Wz83kbrK8RQ5EY02?utm_source=landing&utm_medium=ai_review&utm_campaign=ebook_launch"
-           onclick="fbq('track','InitiateCheckout',{value:490,currency:'THB',content_name:'AI Investment Ebook'})">
+           onclick="fbq('track','InitiateCheckout',{value:490,currency:'THB',content_ids:['ai_investment_ebook'],content_type:'product',content_name:'AI Investment Ebook'})">
           เริ่มใช้งานได้ทันที — 490 บาท
         </a>
         <div class="micro">ราคา 490 บาท</div>
@@ -636,10 +685,22 @@
           </div>
 
           <a class="btn" href="https://buy.stripe.com/28E3cv0Wz83kbrK8RQ5EY02?utm_source=landing&utm_medium=pricing&utm_campaign=ebook_launch"
-             onclick="fbq('track','InitiateCheckout',{value:490,currency:'THB',content_name:'AI Investment Ebook'})">
+             onclick="fbq('track','InitiateCheckout',{value:490,currency:'THB',content_ids:['ai_investment_ebook'],content_type:'product',content_name:'AI Investment Ebook'})">
             รับ E-book + Prompt Pack ทันที
           </a>
           <div class="micro">ชำระผ่าน Stripe อย่างปลอดภัย · รับอีเมลพร้อมลิงก์อัตโนมัติหลังชำระ</div>
+
+          <div class="alt-pay">
+            <div class="alt-pay-divider"><span>หรือ</span></div>
+            <a class="alt-pay-link" href="https://m.me/thethanaphat?ref=manual_purchase"
+               onclick="fbq('track','Contact',{content_name:'Manual Purchase Inquiry'})">
+              <span class="alt-pay-icon">💬</span>
+              <span class="alt-pay-text">
+                <strong>สะดวกโอนตรง? ติดต่อแอดมิน</strong>
+                <span class="alt-pay-sub">แอดมินจะส่งเลขบัญชีให้ทาง Messenger · ส่งสลิปแล้วรอรับลิงก์ภายใน 1-12 ชม.</span>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -657,6 +718,7 @@
 
       <div class="faq-list">
         <div class="faq-item"><div class="faq-q">จ่ายแล้วจะได้รับอะไรบ้าง?</div><div class="faq-a">คุณจะได้รับ E-book 1 เล่ม และ Notion Prompt Pack 32 ข้อ ผ่านอีเมลที่ใช้ตอนชำระเงิน</div></div>
+        <div class="faq-item"><div class="faq-q">มีช่องทางการสั่งซื้อแบบไหนบ้าง?</div><div class="faq-a">มี 2 ช่องทางให้เลือก:<br><br><strong>1. ระบบอัตโนมัติผ่าน Stripe</strong> — ชำระด้วยบัตรเครดิต/เดบิต หรือ PromptPay กรอกชื่อและอีเมล แล้วระบบจะส่งลิงก์ดาวน์โหลดให้ทางอีเมลภายใน 5-15 นาที<br><br><strong>2. ติดต่อแอดมินเพื่อโอนตรง</strong> — ทักมาที่ Messenger ของเพจ แอดมินจะส่งเลขบัญชีให้ โอนเงินและส่งสลิปกลับมา รอรับลิงก์ทาง Inbox ภายใน 1-12 ชม. (ตามเวลาทำการ)</div></div>
         <div class="faq-item"><div class="faq-q">จ่ายแล้วจะได้ไฟล์ทางไหน?</div><div class="faq-a">ระบบจะส่งอีเมลอัตโนมัติพร้อมลิงก์ดาวน์โหลด E-book และลิงก์เปิด Prompt Pack ไปยังอีเมลที่คุณใช้ตอน checkout</div></div>
         <div class="faq-item"><div class="faq-q">ถ้าไม่เจออีเมลต้องทำอย่างไร?</div><div class="faq-a">กรุณาตรวจสอบ Inbox, <strong>แถบ Promotions</strong>, Spam และ Junk ก่อน ถ้าเป็น Gmail ให้ดูที่แถบ "โปรโมชัน" พบแล้วให้ drag มาไว้ใน Primary ได้เลย หากยังไม่พบภายใน 15 นาที inbox มาที่เพจได้เลยครับ พร้อมแจ้งชื่อและอีเมลที่ใช้ชำระเงิน</div></div>
         <div class="faq-item"><div class="faq-q">ใช้กับ AI ตัวไหนได้บ้าง?</div><div class="faq-a">ใช้แนวคิดและ prompt ได้กับ ChatGPT, Claude, Gemini และเครื่องมือแนวเดียวกัน</div></div>
@@ -676,7 +738,7 @@
   <div class="sticky">
     <div class="inner">
       <a class="btn" href="https://buy.stripe.com/28E3cv0Wz83kbrK8RQ5EY02?utm_source=landing&utm_medium=sticky&utm_campaign=ebook_launch"
-         onclick="fbq('track','InitiateCheckout',{value:490,currency:'THB',content_name:'AI Investment Ebook'})">
+         onclick="fbq('track','InitiateCheckout',{value:490,currency:'THB',content_ids:['ai_investment_ebook'],content_type:'product',content_name:'AI Investment Ebook'})">
         ซื้อเลย 490 บาท
       </a>
     </div>

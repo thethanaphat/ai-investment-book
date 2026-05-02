@@ -150,7 +150,41 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '936259682502763');
   fbq('track', 'PageView');
-  fbq('track', 'Purchase', {value: 490, currency: 'THB'});
+
+  // ป้องกัน Purchase event ซ้ำเมื่อ refresh / share / revisit thank-you page
+  (function() {
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var sessionId = urlParams.get('session_id') || urlParams.get('checkout_session');
+
+      // ไม่มี session_id = ไม่ได้มาจาก Stripe redirect → ไม่ fire Purchase
+      if (!sessionId) {
+        console.log('[Pixel] No session_id found — skipping Purchase event');
+        return;
+      }
+
+      var purchaseKey = 'fb_purchase_fired_' + sessionId;
+
+      // เช็คว่า session นี้เคย fire Purchase แล้วหรือยัง
+      if (sessionStorage.getItem(purchaseKey)) {
+        console.log('[Pixel] Purchase already fired for this session — skipping');
+        return;
+      }
+
+      // Fire Purchase event และ mark ว่า fire แล้ว
+      fbq('track', 'Purchase', {
+        value: 490,
+        currency: 'THB',
+        content_ids: ['ai_investment_ebook'],
+        content_type: 'product',
+        content_name: 'AI Investment Ebook'
+      });
+      sessionStorage.setItem(purchaseKey, '1');
+      console.log('[Pixel] Purchase event fired for session:', sessionId);
+    } catch (e) {
+      console.error('[Pixel] Error:', e);
+    }
+  })();
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=936259682502763&ev=PageView&noscript=1"
